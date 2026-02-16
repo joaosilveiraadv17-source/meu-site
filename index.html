@@ -8,96 +8,140 @@
     <style>
         :root {
             --gold: #C5A059;
-            --dark: #121212;
-            --soft-white: #F9F9F9;
-            --border: #e0e0e0;
+            --dark: #0D0D0D;
+            --soft-gold: #e2c285;
+            --light: #FFFFFF;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: white; color: var(--dark); line-height: 1.8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fff; color: var(--dark); line-height: 1.8; }
 
-        /* HEADER & LOGO */
+        /* NAVBAR & HEADER */
         header {
             background-color: var(--dark);
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
             border-bottom: 2px solid var(--gold);
         }
         .logo-img {
-            max-width: 320px;
+            max-width: 300px;
             height: auto;
-            margin-bottom: 20px;
+            transition: transform 0.5s ease;
         }
+        .logo-img:hover { transform: scale(1.05); }
 
-        /* HERO SECTION */
+        /* HERO IMPACTANTE */
         .hero {
-            padding: 120px 20px;
-            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070');
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=2070');
             background-size: cover;
             background-position: center;
-            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            color: var(--light);
+            padding: 0 20px;
         }
-        .hero h2 { font-family: 'Cinzel', serif; font-size: 2.8rem; color: var(--gold); margin-bottom: 20px; text-transform: uppercase; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; font-weight: 300; }
+        .hero h2 { font-family: 'Cinzel', serif; font-size: 3.5rem; color: var(--gold); margin-bottom: 15px; text-transform: uppercase; animation: fadeInDown 1s ease; }
+        .hero p { font-size: 1.3rem; max-width: 800px; font-weight: 300; margin-bottom: 30px; animation: fadeInUp 1s ease 0.5s backward; }
 
-        .container { max-width: 1200px; margin: auto; padding: 80px 20px; }
+        /* BOTÕES DINÂMICOS */
+        .btn-gold {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+        }
+        .btn-gold:hover { background: var(--gold); color: var(--dark); box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); }
 
-        /* SEÇÃO SOBRE (O QUE FALTAVA) */
-        .about { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; background: var(--soft-white); padding: 80px 20px; }
-        .about h2 { font-family: 'Cinzel', serif; color: var(--dark); font-size: 2rem; margin-bottom: 20px; }
-        .about-text { font-size: 1.1rem; color: #444; }
-
-        /* SERVIÇOS */
-        .section-title { text-align: center; font-family: 'Cinzel', serif; font-size: 2.2rem; margin-bottom: 60px; position: relative; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin: 15px auto; }
-
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .card {
+        /* SEÇÃO DIFERENCIAIS (BOXES) */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--dark);
+            padding: 0;
+            margin-top: -50px;
+            z-index: 10;
+            position: relative;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .feature-box {
+            flex: 1;
+            min-width: 250px;
             padding: 40px;
-            border: 1px solid var(--border);
-            transition: all 0.4s ease;
-            background: white;
+            text-align: center;
+            color: white;
+            border: 1px solid #222;
         }
-        .card:hover { border-color: var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-5px); }
-        .card h3 { font-family: 'Cinzel', serif; margin-bottom: 20px; color: var(--dark); font-size: 1.3rem; }
+        .feature-box h4 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 10px; font-size: 1.2rem; }
 
-        /* DIFERENCIAIS */
-        .diferenciais { display: flex; justify-content: space-around; text-align: center; background: var(--dark); color: white; padding: 60px 20px; }
-        .diff-item h4 { color: var(--gold); font-family: 'Cinzel', serif; margin-bottom: 10px; }
+        /* SERVIÇOS (CARDS MODERNOS) */
+        .container { max-width: 1200px; margin: auto; padding: 100px 20px; }
+        .section-title { text-align: center; font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 60px; }
+        .section-title span { color: var(--gold); }
 
-        /* FORMULÁRIO CLEAN */
-        <section class="container">
-    <h2 class="section-title">Dúvidas Frequentes</h2>
-    <div style="max-width: 800px; margin: auto;">
-        <details style="padding: 15px; border-bottom: 1px solid #ddd; cursor: pointer;">
-            <summary style="font-weight: 600; font-family: 'Cinzel', serif;">Como funciona a assessoria em Licitações?</summary>
-            <p style="padding-top: 10px; color: #666;">Realizamos a análise completa do edital, verificação de conformidade da documentação e elaboração de recursos administrativos para garantir a competitividade da sua empresa.</p>
-        </details>
-        
-        <details style="padding: 15px; border-bottom: 1px solid #ddd; cursor: pointer;">
-            <summary style="font-weight: 600; font-family: 'Cinzel', serif;">Qual a importância de um advogado criminalista na fase de inquérito?</summary>
-            <p style="padding-top: 10px; color: #666;">A atuação precoce garante que os direitos constitucionais sejam respeitados, evitando abusos e permitindo a construção de uma defesa sólida desde o primeiro momento.</p>
-        </details>
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: #fff;
+            padding: 50px 30px;
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gold);
+            transform: scaleX(0); transition: transform 0.4s ease;
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: transparent; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card h3 { font-family: 'Cinzel', serif; margin-bottom: 20px; font-size: 1.4rem; }
 
-        <details style="padding: 15px; border-bottom: 1px solid #ddd; cursor: pointer;">
-            <summary style="font-weight: 600; font-family: 'Cinzel', serif;">É possível realizar o Inventário de forma extrajudicial?</summary>
-            <p style="padding-top: 10px; color: #666;">Sim, desde que todos os herdeiros sejam maiores, capazes e estejam em comum acordo. É uma via muito mais rápida e eficiente realizada em cartório.</p>
-        </details>
-    </div>
-</section>
-        .contact-box { background: white; padding: 60px; border: 1px solid var(--border); max-width: 800px; margin: 0 auto; }
-        input, select, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; font-family: 'Montserrat', sans-serif; }
-        button { background: var(--dark); color: var(--gold); padding: 20px 40px; border: 1px solid var(--gold); cursor: pointer; text-transform: uppercase; font-weight: bold; width: 100%; transition: 0.3s; }
-        button:hover { background: var(--gold); color: white; }
+        /* FORMULÁRIO IMPACTANTE */
+        .contact-section { background: #f9f9f9; padding: 100px 20px; }
+        .contact-container {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 1100px; margin: auto;
+            background: white; box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+        .contact-info { background: var(--dark); color: white; padding: 60px; }
+        .contact-info h3 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 30px; }
+        .contact-form { padding: 60px; }
+        input, select, textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; outline: none; }
+        input:focus { border-color: var(--gold); }
+        .submit-btn { background: var(--dark); color: var(--gold); border: 1px solid var(--gold); padding: 15px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+        .submit-btn:hover { background: var(--gold); color: white; }
 
-        /* WHATSAPP FLOAT */
-        .wpp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+        /* WHATSAPP ANIMADO */
+        .wpp-link {
+            position: fixed; bottom: 30px; right: 30px; background: #25d366; width: 65px; height: 65px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            text-decoration: none; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 1000;
+            animation: pulse 2s infinite;
+        }
 
-        footer { background: var(--dark); color: #888; text-align: center; padding: 60px 20px; border-top: 1px solid #333; }
-        .footer-gold { color: var(--gold); margin-bottom: 10px; display: block; font-family: 'Cinzel', serif; }
+        /* KEYFRAMES */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 
-        @media (max-width: 768px) { .about { grid-template-columns: 1fr; } .hero h2 { font-size: 2rem; } }
+        footer { background: var(--dark); color: #777; text-align: center; padding: 60px 20px; }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2.2rem; }
+            .contact-container { grid-template-columns: 1fr; }
+            .features { margin-top: 0; }
+        }
     </style>
 </head>
 <body>
@@ -107,86 +151,82 @@
 </header>
 
 <section class="hero">
-    <h2>Excelência em Gestão Jurídica</h2>
-    <p>Assessoria estratégica em Licitações e defesa especializada em Direito Penal e Civil. Atuação pautada pelo rigor técnico e ética absoluta.</p>
+    <h2>João Silveira</h2>
+    <p>Assessoria Jurídica Estratégica & Consultoria de Alto Impacto.</p>
+    <a href="#contato" class="btn-gold">Agendar Consultoria</a>
 </section>
 
-<section class="about">
-    <div class="container" style="padding: 0;">
-        <h2>Tradição e Modernidade</h2>
-        <p class="about-text">O escritório João Silveira Assessoria e Consultoria Jurídica une a experiência técnica com uma visão inovadora do Direito. Localizados em Goiânia e com atendimento digital em todo o país, priorizamos a transparência e a construção de soluções personalizadas para cada cliente, seja no âmbito público ou privado.</p>
+<div class="features">
+    <div class="feature-box">
+        <h4>Rigor Técnico</h4>
+        <p>Análise profunda e soluções precisas.</p>
     </div>
-    <div>
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2923216?q=80&w=2069" alt="Escritório" style="width: 100%; border-radius: 5px;">
+    <div class="feature-box">
+        <h4>Estratégia</h4>
+        <p>Foco total no resultado do cliente.</p>
     </div>
-</section>
-
-<div class="diferenciais">
-    <div class="diff-item">
+    <div class="feature-box" style="border-right: none;">
         <h4>Ética</h4>
-        <p>Sigilo e transparência total.</p>
-    </div>
-    <div class="diff-item">
-        <h4>Agilidade</h4>
-        <p>Respostas rápidas e estratégicas.</p>
-    </div>
-    <div class="diff-item">
-        <h4>Foco</h4>
-        <p>Especialização em áreas críticas.</p>
+        <p>Transparência em cada etapa do processo.</p>
     </div>
 </div>
 
-<div class="container">
-    <h2 class="section-title">Nossas Especialidades</h2>
-    <div class="services">
-        <div class="card">
-            <h3>Licitações e Contratos</h3>
-            <p>Assessoria em editais, recursos administrativos e gestão de contratos com o Poder Público para empresas de todos os portes.</p>
+<section class="container">
+    <h2 class="section-title">Nossas <span>Áreas</span></h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Licitações</h3>
+            <p>Assessoria completa em editais e contratos administrativos. Maximizamos a competitividade da sua empresa no setor público.</p>
         </div>
-        <div class="card">
+        <div class="service-card">
             <h3>Direito Penal</h3>
-            <p>Defesa técnica especializada, inquéritos policiais e atuação incisiva em casos de Lei Maria da Penha.</p>
+            <p>Defesa criminal técnica e estratégica. Especialidade em casos complexos e atuação em Lei Maria da Penha.</p>
         </div>
-        <div class="card">
-            <h3>Direito Civil e Público</h3>
-            <p>Inventários, Divórcios e demandas que exigem uma intermediação jurídica sofisticada e humana.</p>
+        <div class="service-card">
+            <h3>Direito Civil</h3>
+            <p>Resolução de conflitos, inventários e divórcios com foco na preservação do patrimônio e dos direitos individuais.</p>
         </div>
-        <div class="card">
-            <h3>Direito Previdenciário</h3>
-            <p>Garantia de direitos e planejamento junto ao INSS para assegurar o melhor benefício ao segurado.</p>
+        <div class="service-card">
+            <h3>Previdenciário</h3>
+            <p>Planejamento de aposentadoria e concessão de benefícios. Segurança para o seu futuro perante o INSS.</p>
         </div>
     </div>
-</div>
+</section>
 
-<div class="container" style="background: var(--soft-white);">
-    <h2 class="section-title">Inicie sua Consultoria</h2>
-    <div class="contact-box">
-        <form>
-            <input type="text" placeholder="Seu Nome Completo" required>
-            <input type="email" placeholder="Seu E-mail Profissional">
-            <input type="tel" placeholder="Seu WhatsApp com DDD" required>
-            <select>
-                <option>Assunto de Interesse</option>
-                <option>Licitações</option>
-                <option>Direito Penal</option>
-                <option>Direito Civil</option>
-                <option>Direito Previdenciário</option>
-            </select>
-            <textarea rows="4" placeholder="Como podemos ajudá-lo hoje?"></textarea>
-            <button type="submit">Solicitar Atendimento</button>
-        </form>
+<section class="contact-section" id="contato">
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Contato Direto</h3>
+            <p>📍 Goiânia - GO | Atendimento Nacional</p>
+            <p style="margin-top: 20px;">📞 (62) 9XXXX-XXXX</p>
+            <p>📧 contato@joaosilveira.adv.br</p>
+            <p style="margin-top: 40px; color: var(--gold);">OAB/GO 75.921</p>
+        </div>
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Nome Completo" required>
+                <input type="tel" placeholder="WhatsApp (com DDD)" required>
+                <select>
+                    <option>Área de Interesse</option>
+                    <option>Licitações</option>
+                    <option>Direito Penal</option>
+                    <option>Direito Civil / Família</option>
+                    <option>Direito Previdenciário</option>
+                </select>
+                <textarea rows="4" placeholder="Como podemos ajudá-lo?"></textarea>
+                <button type="submit" class="submit-btn">Enviar Solicitação</button>
+            </form>
+        </div>
     </div>
-</div>
+</section>
 
-<a href="https://wa.me/5562981234567" class="wpp-float" target="_blank">
+<a href="https://wa.me/5562981234567" class="wpp-link" target="_blank">
     <span style="font-size: 30px;">💬</span>
 </a>
 
 <footer>
-    <span class="footer-gold">João Silveira Assessoria Jurídica</span>
-    <p>OAB/GO 75.921</p>
-    <p>Santa Tereza de Goiás - GO | Atendimento em todo o Brasil</p>
-    <p style="margin-top: 20px; font-size: 0.7rem;">&copy; 2026 Todos os direitos reservados.</p>
+    <p>&copy; 2026 João Silveira Assessoria Jurídica. Todos os direitos reservados.</p>
+    <p style="font-size: 0.7rem; margin-top: 10px;">Excelência e Comprometimento.</p>
 </footer>
 
 </body>
