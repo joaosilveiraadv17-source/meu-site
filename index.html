@@ -4,103 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>João Silveira | Inteligência Jurídica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold-primary: #D4AF37;
+            --gold-soft: #f1d592;
             --deep-black: #0a0a0a;
-            --dark-gray: #151515;
+            --dark-gray: #1a1a1a;
             --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--deep-black); color: var(--white); overflow-x: hidden; }
 
-        /* HEADER */
+        /* HEADER MINIMALISTA */
         nav {
-            position: fixed; width: 100%; padding: 20px 50px;
+            position: fixed; width: 100%; padding: 25px 50px;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(10, 10, 10, 0.98); z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(10, 10, 10, 0.95); z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
-        
-        .nav-logo { 
-            height: 85px; 
-            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
-            transition: 0.5s; 
-        }
-        
+        .nav-logo { height: 50px; transition: 0.4s; }
         .nav-links a { color: var(--white); text-decoration: none; margin-left: 30px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold-primary); }
 
-        /* HERO */
+        /* HERO SECTION IMPACTANTE */
         .hero {
-            height: 80vh; display: flex; align-items: center; justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070');
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070');
             background-size: cover; background-position: center; text-align: center; padding: 0 20px;
         }
-        
-        .hero-content h1 { 
-            font-family: 'Cinzel', serif; 
-            font-size: clamp(3rem, 10vw, 7rem); 
-            color: var(--gold-primary); 
-            font-weight: 700;
-            line-height: 1; 
-            margin-bottom: 10px; 
-            letter-spacing: 8px;
-            text-transform: uppercase;
-        }
-        
-        .hero-content p { font-size: clamp(0.9rem, 2vw, 1.2rem); letter-spacing: 6px; text-transform: uppercase; font-weight: 400; color: rgba(255,255,255,0.8); }
+        .hero-content h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); color: var(--gold-primary); font-style: italic; line-height: 1; margin-bottom: 20px; animation: fadeInUp 1.2s ease; }
+        .hero-content p { font-size: clamp(1rem, 2vw, 1.3rem); letter-spacing: 5px; text-transform: uppercase; font-weight: 300; color: rgba(255,255,255,0.7); animation: fadeInUp 1.2s ease 0.3s backwards; }
 
-        /* SOBRE */
-        .section-about { padding: 100px 20px; max-width: 900px; margin: auto; text-align: center; }
-        .section-about h2 { font-family: 'Cinzel', serif; color: var(--gold-primary); margin-bottom: 30px; font-size: 2.5rem; }
-        .section-about p { font-size: 1.15rem; line-height: 2; font-weight: 300; color: rgba(255,255,255,0.7); }
-
-        /* ATUAÇÃO - AGORA COM 4 CARDS */
-        .section-padding { padding: 0 20px 100px; max-width: 1300px; margin: auto; }
-        .grid-services { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-        }
+        /* GRID DE SERVIÇOS "GLASSMORPHISM" */
+        .section-padding { padding: 120px 20px; max-width: 1300px; margin: auto; }
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
         .service-card {
-            background: var(--dark-gray); padding: 40px; border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.5s; text-align: center;
+            background: var(--dark-gray); padding: 50px; border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden;
         }
-        .service-card:hover { border-color: var(--gold-primary); transform: translateY(-10px); background: #1a1a1a; }
-        .service-card h3 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold-primary); margin-bottom: 15px; }
-        .service-card p { font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.6); }
+        .service-card:hover { border-color: var(--gold-primary); transform: translateY(-10px); background: #222; }
+        .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold-primary); margin-bottom: 20px; }
+        .service-card p { font-weight: 300; font-size: 0.95rem; color: rgba(255,255,255,0.6); }
 
-        /* CONTATO */
+        /* FORMULÁRIO DARK MINIMALISTA */
         .contact-area { background: #070707; padding: 100px 20px; }
         .contact-form { max-width: 600px; margin: auto; }
-        .input-group { position: relative; margin-bottom: 35px; }
+        .contact-form h2 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; text-align: center; margin-bottom: 40px; color: var(--gold-primary); }
+        .input-group { position: relative; margin-bottom: 40px; }
         .input-group input, .input-group textarea, .input-group select {
             width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 15px 0; color: white; outline: none; transition: 0.3s; font-family: 'Inter', sans-serif;
+            padding: 15px 0; color: white; font-family: 'Inter', sans-serif; outline: none; transition: 0.3s;
         }
+        .input-group input:focus { border-bottom-color: var(--gold-primary); }
         .submit-btn {
             width: 100%; padding: 20px; background: transparent; color: var(--gold-primary);
-            border: 1px solid var(--gold-primary); text-transform: uppercase; letter-spacing: 4px;
-            cursor: pointer; transition: 0.4s; font-weight: 700;
+            border: 1px solid var(--gold-primary); text-transform: uppercase; letter-spacing: 3px;
+            cursor: pointer; transition: 0.4s; font-weight: 600;
         }
-        .submit-btn:hover { background: var(--gold-primary); color: black; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); }
+        .submit-btn:hover { background: var(--gold-primary); color: black; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
 
-        /* WHATSAPP */
+        /* WHATSAPP FLOAT */
         .wpp-button {
             position: fixed; bottom: 40px; right: 40px; width: 60px; height: 60px;
             background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center;
             box-shadow: 0 10px 20px rgba(0,0,0,0.4); text-decoration: none; z-index: 1000; transition: 0.3s;
         }
+        .wpp-button:hover { transform: scale(1.1) rotate(10deg); }
 
-        footer { text-align: center; padding: 50px; border-top: 1px solid #1a1a1a; font-size: 0.75rem; color: #555; letter-spacing: 3px; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { nav { padding: 20px; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
 
 <nav>
-    <img src="IMG_7496.JPG.png" alt="Logo João Silveira" class="nav-logo">
+    <img src="logo.png" alt="Logo" class="nav-logo">
     <div class="nav-links">
         <a href="#sobre">Sobre</a>
         <a href="#areas">Atuação</a>
@@ -110,46 +89,47 @@
 
 <section class="hero">
     <div class="hero-content">
+        <p>Assessoria Estratégica</p>
         <h1>João Silveira</h1>
-        <p>Inteligência Jurídica & Defesa Estratégica</p>
+        <a href="#contato" class="submit-btn" style="text-decoration: none; padding: 15px 40px; display: inline-block; width: auto;">Iniciar Consultoria</a>
     </div>
 </section>
-
-<section class="section-about" id="sobre">
+    <section class="section-about" id="sobre">
     <h2>Sobre a Consultoria</h2>
     <p>
-        Pautado pelo rigor técnico e pela ética inabalável, o escritório <strong>João Silveira</strong> oferece uma advocacia de alto impacto. Especializado em causas complexas, nossa missão é converter conhecimento jurídico em resultados concretos para nossos clientes, unindo a tradição do Direito à agilidade das estratégias modernas.
+        Pautado pelo rigor técnico e pela ética inabalável, o escritório João Silveira oferece uma advocacia de alto impacto. Especializado em causas complexas de Direito Administrativo e Direito Penal, nossa missão é converter conhecimento jurídico em resultados concretos para nossos clientes. Cada caso é tratado como único, unindo a tradição do Direito à agilidade das estratégias modernas.
     </p>
 </section>
 
 <section class="section-padding" id="areas">
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; text-align: center;">Áreas de Atuação</h2>
     <div class="grid-services">
         <div class="service-card">
             <h3>Licitações</h3>
-            <p>Assessoria em editais e contratos administrativos, garantindo competitividade e segurança jurídica perante o Poder Público.</p>
+            <p>Consultoria técnica em editais e contratos administrativos. Segurança jurídica para empresas que contratam com o Estado.</p>
         </div>
         <div class="service-card">
             <h3>Direito Penal</h3>
-            <p>Defesa criminal técnica e estratégica em inquéritos e ações penais, com foco na preservação da liberdade e direitos fundamentais.</p>
-        </div>
-        <div class="service-card">
-            <h3>Previdenciário</h3>
-            <p>Especialista em concessão de benefícios, aposentadorias e revisões junto ao INSS, assegurando o melhor direito ao segurado.</p>
+            <p>Defesa criminal estratégica com foco em resultados. Atuação rigorosa em inquéritos e ações penais complexas.</p>
         </div>
         <div class="service-card">
             <h3>Direito Civil</h3>
-            <p>Gestão estratégica de Inventários e Divórcios, priorizando a proteção do patrimônio e soluções resolutivas para conflitos familiares.</p>
+            <p>Gestão de inventários, divórcios e demandas patrimoniais que exigem sigilo e inteligência jurídica.</p>
+            <div class="service-card">
+            <h3>Previdenciário</h3>
+            <p>Especialista em concessão de benefícios, aposentadorias e revisões junto ao INSS, assegurando o melhor direito ao segurado.</p>
         </div>
     </div>
 </section>
 
 <section class="contact-area" id="contato">
     <div class="contact-form">
+        <h2>Consultoria Especializada</h2>
         <form>
             <div class="input-group"><input type="text" placeholder="NOME COMPLETO" required></div>
-            <div class="input-group"><input type="tel" placeholder="WHATSAPP COM DDD" required></div>
+            <div class="input-group"><input type="tel" placeholder="WHATSAPP" required></div>
             <div class="input-group">
-                <select style="color: rgba(255,255,255,0.6)">
+                <select>
                     <option>ÁREA DE INTERESSE</option>
                     <option>LICITAÇÕES</option>
                     <option>DIREITO PENAL</option>
@@ -162,8 +142,8 @@
     </div>
 </section>
 
-<footer style="text-align: center;">
-    JOÃO SILVEIRA | OAB/GO 75.921 | SANTA TEREZA DE GOIÁS - GO
+<footer style="text-align: center; padding: 50px; border-top: 1px solid #1a1a1a; font-size: 0.8rem; color: #444; letter-spacing: 2px;">
+    JOÃO SILVEIRA | OAB/GO 75.921 | TODOS OS DIREITOS RESERVADOS &copy; 2026
 </footer>
 
 <a href="https://wa.me/5562993170435?text=Olá,%20Dr.%20João%20Silveira.%20Gostaria%20de%20agendar%20uma%20consultoria%20jurídica." class="wpp-button" target="_blank">
